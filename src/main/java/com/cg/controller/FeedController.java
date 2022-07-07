@@ -6,12 +6,14 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.entity.Feed;
@@ -45,7 +47,7 @@ public class FeedController {
 	
 	
 	@GetMapping(value= "/getFeed/{id}")
-	public  Feed getFeed(@PathVariable("id") int feedId)
+	public  List<Feed> getFeed(@PathVariable("id") int feedId)
 	{
 		return feedService.getById(feedId);
 	}
@@ -62,11 +64,34 @@ public class FeedController {
 		return feedService.getFeedsByDeveloper(feedId);
 	}
 	
-	@GetMapping("/getByKeyword/{keyword}")
+	/*@GetMapping("/getByKeyword/{keyword}")
 	public List<Feed> getFeedsByKeyword(@PathVariable("keyword") String keyword)
 	{
 		return feedService.getFeedsByKeyword(keyword);
-	}
+	}*/
+	
+	
+	
+	
+/* @GetMapping("/keyword")
+	    public
+	    ResponseEntity<?>
+	    getFeedWithKeyword(@RequestParam String keyword){
+	        Feed f = feedService.getFeedWithKeyword(keyword);
+	        if (p != null && !p.isEmpty()) {
+	            return new ResponseEntity<>(new Response<>(true, 1, p), HttpStatus.OK);
+	        } else {
+	            return new ResponseEntity<>(new Response<>(false, 0, null), HttpStatus.NOT_FOUND);
+	        }
+	    }*/
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 	@GetMapping("/getByTopic/{topic}")

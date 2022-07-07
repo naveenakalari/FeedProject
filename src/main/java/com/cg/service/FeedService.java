@@ -44,9 +44,9 @@ public class FeedService {
 	}
 	
 	
-	 public Feed getById(int feedId) 
+	 public List<Feed> getById(int feedId) 
 	 {
-		return feedRepository.findById(feedId).get();
+		return feedRepository.getById(feedId);
 	  
 	 }
 	 
@@ -63,12 +63,12 @@ public class FeedService {
 		 
 	 }
 	
-	public List<Feed> getFeedsByKeyword(String keyword)
+	/*public List<Feed> getFeedsByKeyword(String keyword)
 	 {
 		
 		 return feedRepository.getByKeyword(keyword);
 		 
-	 }
+	 }*/
 	
 	
 	public List<Feed> getFeedsByTopic(String topic)

@@ -14,18 +14,17 @@ import com.cg.entity.Feed;
 @Repository
 public interface FeedRepository extends JpaRepository<Feed,Integer> {
 
-	@Query("select f from Feed where topic=keyword")
-	public List<Feed> getByKeyword(@Param("word") String keyword);
+	
+	public List<Feed> getById(int feedId);
 	
 	public List<Feed> getByTopic(String topic);
     
     //public List<Feed> getByKeyword(String keyword);
 
-
+	//List<Feed> findByKeywordsIn(List<String> keywords);
 	
-
-	
-	
+	//@Query("select f from Feed where topic like '%:word%' ")
+	//public List<Feed> getByKeyword(@Param("word") String keyword);
 	 
 
 }
